@@ -3,13 +3,13 @@ namespace TeamAlpha\Web;
 
 // HTTP headers for response
 header('Access-Control-Allow-Orgin: *');
-header('Access-Control-Allow-Methods: DELETE');
+header('Access-Control-Allow-Methods: POST');
 header('Content-Type: application/json; charset=UTF-8');
 
 require $_SERVER['DOCUMENT_ROOT'] . '/api/models/driver.php';
 
 // Check if request method is correct
-if ($_SERVER['REQUEST_METHOD'] !== 'DELETE') {
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     // Reply with error response
     header('HTTP/1.1 405 Method Not Allowed');
     echo json_encode(array('message' => 'Request method is not allowed.'));
