@@ -1,0 +1,20 @@
+language: php
+
+php:
+  - 7.0
+
+install:
+  - composer install
+
+script: skip
+
+after_success:
+  - "find vendor -type f -exec curl --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://files.000webhost.com/public_html/{} \\;"
+  - "find src -type f -exec curl --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://files.000webhost.com/public_html/{} \\;"
+  - "find public -type f -exec curl --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://files.000webhost.com/public_html/{} \\;"
+  - "curl -T index.php --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://files.000webhost.com/public_html/"
+
+env:
+  global:
+    - secure: eZE497MBsrJnR8r8ieBIay6DHUeF7NokkxwicbDwB7tpu+JW/Fxisao1aiuLYOpW7DDlYd84B1AN1/GKkdwaFdizGaTjHL2pTbtrxE9pbAIjmt9dubQrbgJZbtgx2Hut8gDsVThAPryEa/bm9AGnEn45fGDfTnuYZV5Ywn6JartprQT4DPEd1chrGurg6U3wtJHPgMNP7pOQJUvJ7JlfIEN+JLS5XS4PwtRv0SAcy1SeCACaffPAyV6w/ak0iiEtS0HMbuQzd+wwtNrTAW554xHDgXAIrHPTkztEDG2rbYJbULtUGXIz1B7SsACXK3U/lNYzwEROrOs6u6NsxBJX5k+XIyJBa+u6y6B1TOoSsBFLApuFlq3d3t9q5QgaQEPY6yXiXBaLio6W81Z5jVqGd/MOEf7WofTR+s6tQPD34OHKumJyEJR18cFYeNr6vubiesQXZEzTQ/m18q7ok6DY6v2kNc+q74TZNAo7ol9D9z5xBpp5k4/eOw0R1sWQ4WbofGvt3IE8vmS/Pi6C5tqxx47HFz5ejtClGKj9EQ+tKx3KZJzM3I9VHtqJkTtPz/uT2SAFKzZAsSTErRcQ+TfYIKUXx54R3RJkvDQ7X5OqSgsrCLtKC2bZtVmce0mgU/jWeOTHFmtKPOk0BX6kBKo+GlZW8+nqVght9dCOI99GmSM=
+    - secure: IeLHDrpQKSjMtcJV7xonBdSUBXarIQTI+ufcytB6XnxdrkyzN2cwyQRdPE933lNiadnPQFQbV/qMJ5WTXZzXfMHkjMuFXcZJpc8Tv6S1w3JNI+SrHUeuPEL6etzWt3Mxx9PkBo7OcPbOBy9qaECaTkWBe8POqMo3vQfUqIxuywjfN6ftsGTvfQT/teosgmdacNXOMBVWmbWB2mnLknf2+2uu+BCVaxdugV+9Sb+5dgtjbyZT6o3Et1ouTDRm3gIHCxWKN5QBvXXikNE4TEnKTSX7/io+r3IfWQMeGCxgryNK6/4ccKl7+m+l8E1LjmcluKH3uCVEyYwfztWkLRFCCsF0D5qgumycSRdvylkfq8QN4y5VbM3oBBo907EdpP8IcZo5g5Bzf8Vu2lBBChiuv6prOeJ7ctXLUjT+WQDgGsMYfeaL562ctPcPtV6RxMaTnPdP9bjBRl4LEA/hZjmHhdsA6fFFELSmc8op/h1RB4T9AF6DIoODI/gew8E3mWRWKeuGCmAWCGLO1a3NYP30x69PZn9uG4qJj0LGuiFryGz8wBuJPOC2xArRRROQT0BxbIjQ65IT0ohMlbVvEpSAW2/ranO+CcBQvtB4Q+v6mkN98jqEg5ZXYqHo2Y+nFmS2eKzQkKSaxh18QiikEf2+/DIp/Vi2AcxM3NnAykijT64=
