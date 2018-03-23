@@ -1,0 +1,881 @@
+{
+	"info": {
+		"_postman_id": "c3bcdc75-6950-0bb1-3060-8d918e7b7765",
+		"name": "Team Alpha API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Drivers",
+			"description": null,
+			"item": [
+				{
+					"name": "Get All Drivers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/driver/get.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"driver",
+								"get.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Specific Driver",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/driver/get.php?id=100",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"driver",
+								"get.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Driver (Error) - Not Found",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/driver/get.php?id=404",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"driver",
+								"get.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "404"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Driver",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"Juan\",\n    \"lastname\": \"Dela Cruz\",\n    \"email\": \"juan@delacruz.com\",\n    \"password\": \"hidden\",\n    \"address\": \"Manila, Philippines\",\n    \"mobile\": \"09200000000\"\n}"
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/driver/create.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"driver",
+								"create.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Driver (Error) - Empty Details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/driver/create.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"driver",
+								"create.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Driver",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 100,\r\n    \"firstname\": \"Juan\",\r\n    \"lastname\": \"Dela Cruz\",\r\n    \"email\": \"juan@delacruz.com\",\r\n    \"password\": \"hidden\",\r\n    \"address\": \"Manila, Philippines\",\r\n    \"mobile\": \"09200000000\"\r\n}"
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/driver/edit.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"driver",
+								"edit.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Driver (Error) - Not Found",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 404,\r\n    \"firstname\": \"Juan\",\r\n    \"lastname\": \"Dela Cruz\",\r\n    \"email\": \"juan@delacruz.com\",\r\n    \"password\": \"hidden\",\r\n    \"address\": \"Manila, Philippines\",\r\n    \"mobile\": \"09200000000\"\r\n}"
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/driver/edit.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"driver",
+								"edit.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Driver (Error) - Empty Details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/javascript"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/driver/edit.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"driver",
+								"edit.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Driver",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 100\r\n}"
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/driver/delete.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"driver",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Driver (Error) - Empty Details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/driver/delete.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"driver",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Driver (Error) - Not Found",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 404\r\n}"
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/driver/delete.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"driver",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trips",
+			"description": null,
+			"item": [
+				{
+					"name": "Get All Trips",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/get.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"get.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trip by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/get.php?id=100",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"get.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trip by Stage - All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/get.php?stage=All",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"get.php"
+							],
+							"query": [
+								{
+									"key": "stage",
+									"value": "All"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trip by Stage - Requested",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/get.php?stage=Requested",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"get.php"
+							],
+							"query": [
+								{
+									"key": "stage",
+									"value": "Requested"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trip by Stage - Allocated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/get.php?stage=Allocated",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"get.php"
+							],
+							"query": [
+								{
+									"key": "stage",
+									"value": "Allocated"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trip by Stage - Ongoing",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/get.php?stage=Ongoing",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"get.php"
+							],
+							"query": [
+								{
+									"key": "stage",
+									"value": "Ongoing"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trip by Stage - Completed",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/get.php?stage=Completed",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"get.php"
+							],
+							"query": [
+								{
+									"key": "stage",
+									"value": "Completed"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trip by Stage - Cancelled",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/get.php?stage=Cancelled",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"get.php"
+							],
+							"query": [
+								{
+									"key": "stage",
+									"value": "Cancelled"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trip (Error) - Not Found",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/get.php?id=404",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"get.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "404"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Allocate Trip",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tripId\": 100,\n    \"vehicleId\": 1,\n    \"passengerId\": 1\n}"
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/allocate.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"allocate.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Allocate Trip (Error)  - Not Found",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tripId\": 404,\n    \"vehicleId\": 1,\n    \"passengerId\": 1\n}"
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/allocate.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"allocate.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Allocate Trip (Error) - Empty Details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/allocate.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"allocate.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Trip",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tripId\": 100\n}"
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/start.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"start.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Trip (Error) - Not Found",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tripId\": 404\n}"
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/start.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"start.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Trip (Error) - Empty Details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/start.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"start.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "End Trip",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tripId\": 100\n}"
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/end.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"end.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "End Trip (Error) - Not Found",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tripId\": 404\n}"
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/end.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"end.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "End Trip (Error) - Empty Details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/end.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"end.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cencel Trip",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tripId\": 100\n}"
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/cancel.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"cancel.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Trip (Error) - Not Found",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tripId\": 404\n}"
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/cancel.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"cancel.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Trip (Error) - Empty Details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://cmsc-207-team-alpha.000webhostapp.com/api/trip/cancel.php",
+							"host": [
+								"https://cmsc-207-team-alpha.000webhostapp.com"
+							],
+							"path": [
+								"api",
+								"trip",
+								"cancel.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
