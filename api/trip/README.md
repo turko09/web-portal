@@ -22,13 +22,13 @@ Trip API contains operations for allocating trips and updating trips' status.
 
 #### Response Status Codes:
 |Status|Description|
-|--|--|--|
+|--|--|
 |200|Success|
 |405|Method Not Allowed|
 
 #### Response Body:
 |Member|Data Type|Comment|
-|----|--|--|
+|--|--|--|
 |id |numeric||
 |vehicleId|numeric||
 |passengerId|numeric||
@@ -94,14 +94,14 @@ Status: 200
 
 #### Response Status Codes:
 |Status|Description|
-|--|--|--|
+|--|--|
 |200|Success|
 |405|Method Not Allowed|
 
 #### Response Body:
 **Array of:**
 |Member|Data Type|Comment|
-|----|--|--|
+|--|--|--|
 |id |numeric||
 |vehicleId|numeric||
 |passengerId|numeric||
@@ -245,7 +245,7 @@ Status: 200
 #### Response Body:
 **Array of:**
 |Member|Data Type|Comment|
-|----|--|--|
+|--|--|--|
 |id |numeric||
 |vehicleId|numeric||
 |passengerId|numeric||
@@ -320,7 +320,7 @@ Status: 200
 
 #### Response Status Codes:
 |Status|Description|
-|--|--|--|
+|--|--|
 |200|Success|
 |400|Bad Request|
 |404|Not Found|
@@ -328,7 +328,7 @@ Status: 200
 
 #### Response Body:
 |Member|Data Type|Comment|
-|----|--|--|
+|--|--|--|
 |message|string||
 |tripId|numeric|Present only if operation is successful|
 |vehicleId|numeric|Present only if operation is successful|
@@ -379,14 +379,14 @@ Status: 200
 
 #### Request Body:
 |Member|Data Type|Comment|
-|----|--|--|
+|--|--|--|
 |tripId|numeric||
 
 ### RESPONSE DETAILS
 
 #### Response Status Codes:
 |Status|Description|
-|--|--|--|
+|--|--|
 |200|Success|
 |400|Bad Request|
 |404|Not Found|
@@ -394,7 +394,7 @@ Status: 200
 
 #### Response Body:
 |Member|Data Type|Comment|
-|----|--|--|
+|--|--|--|
 |message|string||
 |tripId|numeric|Present only if operation is successful|
 
@@ -439,14 +439,14 @@ Status: 200
 
 #### Request Body:
 |Member|Data Type|Comment|
-|----|--|--|
+|--|--|--|
 |tripId|numeric||
 
 ### RESPONSE DETAILS
 
 #### Response Status Codes:
 |Status|Description|
-|--|--|--|
+|--|--|
 |200|Success|
 |400|Bad Request|
 |404|Not Found|
@@ -454,7 +454,7 @@ Status: 200
 
 #### Response Body:
 |Member|Data Type|Comment|
-|----|--|--|
+|--|--|--|
 |message|string||
 |tripId|numeric|Present only if operation is successful|
 
@@ -499,14 +499,14 @@ Status: 200
 
 #### Request Body:
 |Member|Data Type|Comment|
-|----|--|--|
+|--|--|--|
 |tripId|numeric||
 
 ### RESPONSE DETAILS
 
 #### Response Status Codes:
 |Status|Description|
-|--|--|--|
+|--|--|
 |200|Success|
 |400|Bad Request|
 |404|Not Found|
@@ -514,7 +514,7 @@ Status: 200
 
 #### Response Body:
 |Member|Data Type|Comment|
-|----|--|--|
+|--|--|--|
 |message|string||
 |tripId|numeric|Present only if operation is successful|
 

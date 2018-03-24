@@ -14,7 +14,7 @@ Driver API contains operations for manipulating driver information including add
 
 #### Request Body:
 |Member|Data Type|Comment|
-|----|--|--|
+|--|--|--|
 |firstname|string||
 |lastname|string||
 |email|string||
@@ -26,14 +26,14 @@ Driver API contains operations for manipulating driver information including add
 
 #### Response Status Codes:
 |Status|Description|
-|--|--|--|
+|--|--|
 |200|Success|
 |400|Bad Request|
 |405|Method Not Allowed|
 
 #### Response Body:
 |Member|Data Type|Comment|
-|----|--|--|
+|--|--|--|
 |message|string||
 |driverId|numeric|Present only if operation is successful|
 
@@ -90,19 +90,19 @@ Status: 200
 
 #### Response Status Codes:
 |Status|Description|
-|--|--|--|
+|--|--|
 |200|Success|
 |404|Not Found|
 |405|Method Not Allowed|
 
 #### Response Body:
 |Member|Data Type|Comment|
-|----|--|--|
-|id |numeric ||
-|firstname|string  ||
-|lastname   |string  ||
-|email  |string  ||
-|password |string  ||
+|--|--|--|
+|id |numeric||
+|firstname|string||
+|lastname|string||
+|email|string||
+|password|string||
 |address|string||
 |mobile|string||
 
@@ -149,15 +149,15 @@ Status: 200
 
 #### Response Status Codes:
 |Status|Description|
-|--|--|--|
+|--|--|
 |200|Success|
 |405|Method Not Allowed|
 
 #### Response Body:
 **Array of:**
 |Member|Data Type|Comment|
-|----|--|--|
-|id |numeric||
+|--|--|--|
+|id|numeric||
 |firstname|string||
 |lastname|string||
 |email|string||
@@ -226,7 +226,7 @@ Status: 200
 
 #### Request Body:
 |Member|Data Type|Comment|
-|----|--|--|
+|--|--|--|
 |id|numeric||
 |firstname|string||
 |lastname|string||
@@ -239,7 +239,7 @@ Status: 200
 
 #### Response Status Codes:
 |Status|Description|
-|--|--|--|
+|--|--|
 |200|Success|
 |400|Bad Request|
 |404|Not Found|
@@ -247,7 +247,7 @@ Status: 200
 
 #### Response Body:
 |Member|Data Type|Comment|
-|----|--|--|
+|--|--|--|
 |message|string||
 |driverId|numeric|Present only if operation is successful|
 
@@ -298,7 +298,7 @@ Status: 200
 
 #### Request Body:
 |Member|Data Type|Comment|
-|----|--|--|
+|--|--|--|
 |id|numeric||
 
 ### RESPONSE DETAILS
@@ -313,7 +313,7 @@ Status: 200
 
 #### Response Body:
 |Member|Data Type|Comment|
-|----|--|--|
+|--|--|--|
 |message|string||
 |driverId|numeric|Present only if operation is successful|
 
