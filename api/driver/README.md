@@ -155,6 +155,7 @@ Status: 200
 
 #### Response Body:
 **Array of:**
+
 |Member|Data Type|Comment|
 |--|--|--|
 |id|numeric||
@@ -298,14 +299,14 @@ Status: 200
 
 #### Request Body:
 |Member|Data Type|Comment|
-|--|--|--|
+|--|--|
 |id|numeric||
 
 ### RESPONSE DETAILS
 
 #### Response Status Codes:
 |Status|Description|
-|--|--|--|
+|--|--|
 |200|Success|
 |400|Bad Request|
 |404|Not Found|

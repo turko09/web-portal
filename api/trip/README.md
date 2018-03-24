@@ -100,6 +100,7 @@ Status: 200
 
 #### Response Body:
 **Array of:**
+
 |Member|Data Type|Comment|
 |--|--|--|
 |id |numeric||
@@ -244,6 +245,7 @@ Status: 200
 
 #### Response Body:
 **Array of:**
+
 |Member|Data Type|Comment|
 |--|--|--|
 |id |numeric||
