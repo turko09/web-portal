@@ -4,7 +4,7 @@ Driver API contains operations for manipulating driver information including add
 
 ## Adding a new driver:
 
-### ENDOINT
+### ENDPOINT
 `[website base address]/api/driver/create.php`
 
 ### REQUEST DETAILS
@@ -217,7 +217,7 @@ Status: 200
 
 ## Editing a driver:
 
-### ENDOINT
+### ENDPOINT
 `[website base address]/api/driver/edit.php`
 
 ### REQUEST DETAILS
@@ -289,7 +289,7 @@ Status: 200
 
 ## Deleting a driver:
 
-### ENDOINT
+### ENDPOINT
 `[website base address]/api/driver/delete.php`
 
 ### REQUEST DETAILS
