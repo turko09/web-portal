@@ -299,7 +299,7 @@ Status: 200
 
 #### Request Body:
 |Member|Data Type|Comment|
-|--|--|
+|--|--|--|
 |id|numeric||
 
 ### RESPONSE DETAILS
