@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `driver` (
   `active` tinyint(4) NOT NULL,
   `verified` tinyint(4) NOT NULL,
   `blocked` tinyint(4) NOT NULL,
-  `token` varchar(250) NOT NULL,
+  `token` varchar(250) DEFAULT NULL,
   `photo` blob NOT NULL,
   `datecreated` datetime NOT NULL,
   `datemodified` datetime NOT NULL,
