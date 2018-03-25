@@ -21,6 +21,7 @@ Driver API contains operations for manipulating driver information including reg
 |password|string||
 |address|string||
 |mobile|string||
+|photo|string|base64 encoded string of the photo|
 
 ### RESPONSE DETAILS
 
@@ -110,7 +111,7 @@ Status: 201
 |active|numeric|1 or 0|
 |verified|numeric|1 or 0|
 |blocked|numeric|1 or 0|
-|photo|string||
+|photo|string|base64 encoded string of the photo|
 |datecreated|datetime||
 |datemodified|datetime||
 
@@ -180,7 +181,7 @@ Status: 200
 |active|numeric|1 or 0|
 |verified|numeric|1 or 0|
 |blocked|numeric|1 or 0|
-|photo|string||
+|photo|string|base64 encoded string of the photo|
 |datecreated|datetime||
 |datemodified|datetime||
 
