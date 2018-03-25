@@ -1,103 +1,236 @@
-CREATE DATABASE cmsc_team_alpha;
+-- phpMyAdmin SQL Dump
+-- version 4.7.7
+-- https://www.phpmyadmin.net/
+--
+-- Host: 172.17.0.1:32771
+-- Generation Time: Mar 25, 2018 at 07:04 AM
+-- Server version: 5.7.21
+-- PHP Version: 7.1.9
 
-USE cmsc_team_alpha;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
--- Table structure for table `tbl_driver`
-CREATE TABLE IF NOT EXISTS `tbl_driver` (
-  `driver_id` int(11) NOT NULL AUTO_INCREMENT,
-  `driver_firstname` varchar(50) NOT NULL,
-  `driver_lastname` varchar(50) NOT NULL,
-  `driver_email` varchar(250) NOT NULL,
-  `driver_password` varchar(250) NOT NULL,
-  `driver_address` varchar(50) NOT NULL,
-  `driver_mobile` varchar(12) NOT NULL,
-  `driver_status` varchar(10) DEFAULT 'inactive',
-  `driver_verified` varchar(12) DEFAULT 'notverified',
-  `driver_token` varchar(250) NOT NULL,
-  `driver_thumbnail` varchar(250) NOT NULL,
-  `driver_image` varchar(250) NOT NULL,  
-  PRIMARY KEY (`driver_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
 
--- Table structure for table `tbl_rider`
-CREATE TABLE IF NOT EXISTS `tbl_rider` (
-  `rider_id` int(11) NOT NULL AUTO_INCREMENT,
-  `rider_firstname` varchar(50) NOT NULL,
-  `rider_lastname` varchar(50) NOT NULL,
-  `rider_email` varchar(250) NOT NULL,
-  `rider_password` varchar(250) NOT NULL,
-  `rider_address` varchar(50) NOT NULL,
-  `rider_mobile` varchar(12) NOT NULL,
-  `rider_status` varchar(10) DEFAULT 'inactiver',
-  `rider_verified` varchar(12) DEFAULT 'notverified',
-  `rider_token` varchar(250) NOT NULL,
-  `rider_thumbnail` varchar(250) NOT NULL,
-  `rider_image` varchar(250) NOT NULL,  
-  PRIMARY KEY (`rider_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
--- Table structure for table `tbl_vehicle`
-CREATE TABLE IF NOT EXISTS `tbl_vehicle` (
-  `vehicle_id` int(11) NOT NULL AUTO_INCREMENT,
-  `vehicle_driver_id` int(11) NOT NULL,
-  `vehicle_plate_no` varchar(10) NOT NULL,
-  `vehicle_type` varchar(10) NOT NULL,
-  `vehicle_make` varchar(10) NOT NULL,
-  `vehicle_model` varchar(10) NOT NULL,
-  `vehicle_color` varchar(10) NOT NULL,
-  `vehicle_fare_id` int(11) NOT NULL,
-  `vehicle_thumbnail` varchar(250) NOT NULL,
-  `vehicle_image` varchar(250) NOT NULL,  
-  PRIMARY KEY (`vehicle_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
+--
+-- Database: `cmsc_team_alpha`
+--
 
--- Table structure for table `tbl_trip`
-CREATE TABLE IF NOT EXISTS `tbl_trip` (
-  `trip_id` int(11) NOT NULL AUTO_INCREMENT,
-  `trip_date` date NOT NULL,
-  `trip_vehicle_id` int(11) NOT NULL,
-  `trip_rider_id` int(11) NOT NULL,
-  `trip_location` varchar(250) NOT NULL,
-  `trip_destination` varchar(250) NOT NULL,
-  `trip_latitude` varchar(250) NOT NULL,
-  `trip_longiture` varchar(250) NOT NULL,
-  `trip_start` datetime NOT NULL,
-  `trip_end` datetime NOT NULL, 
-  PRIMARY KEY (`trip_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
+-- --------------------------------------------------------
 
--- Table structure for table `tbl_payment`
-CREATE TABLE IF NOT EXISTS `tbl_payment` (
-  `payment_id` int(11) NOT NULL AUTO_INCREMENT,
-  `payment_date` date NOT NULL,
-  `payment_vehicle_id` int(11) NOT NULL,
-  `payment_rider_id` int(11) NOT NULL,
-  `payment_amount` decimal (6,2),
-  `payment_mode` varchar(50) NOT NULL,
-  PRIMARY KEY (`payment_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
+--
+-- Table structure for table `admin`
+--
 
--- Table structure for table `tbl_user`
-CREATE TABLE IF NOT EXISTS `tbl_user` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_firstname` varchar(50) NOT NULL,
-  `user_lastname` varchar(50) NOT NULL,
-  `user_email` varchar(250) NOT NULL,
-  `user_password` varchar(250) NOT NULL,
-  `user_address` varchar(50) NOT NULL,
-  `user_mobile` varchar(12) NOT NULL,
-  `user_status` varchar(10) DEFAULT 'inactive',
-  `user_verified` varchar(12) DEFAULT 'notverified',
-  `user_token` varchar(250) NOT NULL,
-  `user_thumbnail` varchar(250) NOT NULL,
-  `user_image` varchar(250) NOT NULL,  
-  PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `mobile` varchar(12) NOT NULL,
+  `active` tinyint(4) NOT NULL,
+  `token` varchar(250) DEFAULT NULL,
+  `photo` blob,
+  `datecreated` datetime NOT NULL,
+  `datemodified` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email_2` (`email`),
+  KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 
--- Table structure for table `tbl_fare`
-CREATE TABLE IF NOT EXISTS `tbl_fare` (
-  `fare_id` int(11) NOT NULL AUTO_INCREMENT,
-  `fare_amount` decimal (6,2),
-  `fare_surge_amount` decimal (6,2),
-  PRIMARY KEY (`fare_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `driver`
+--
+
+CREATE TABLE IF NOT EXISTS `driver` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `address` varchar(250) NOT NULL,
+  `mobile` varchar(12) NOT NULL,
+  `active` tinyint(4) NOT NULL,
+  `verified` tinyint(4) NOT NULL,
+  `blocked` tinyint(4) NOT NULL,
+  `token` varchar(250) NOT NULL,
+  `photo` blob NOT NULL,
+  `datecreated` datetime NOT NULL,
+  `datemodified` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email_2` (`email`),
+  UNIQUE KEY `mobile_2` (`mobile`),
+  KEY `email` (`email`),
+  KEY `mobile` (`mobile`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `driverdocument`
+--
+
+CREATE TABLE IF NOT EXISTS `driverdocument` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `driverid` int(11) NOT NULL,
+  `description` varchar(50) NOT NULL,
+  `document` blob NOT NULL,
+  `datecreated` datetime NOT NULL,
+  `datemodified` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `driverid` (`driverid`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fare`
+--
+
+CREATE TABLE IF NOT EXISTS `fare` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `amount` decimal(6,2) DEFAULT NULL,
+  `surge_amount` decimal(6,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `passenger`
+--
+
+CREATE TABLE IF NOT EXISTS `passenger` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `mobile` varchar(12) NOT NULL,
+  `active` tinyint(4) NOT NULL,
+  `verified` tinyint(4) NOT NULL,
+  `blocked` tinyint(4) NOT NULL,
+  `token` varchar(250) DEFAULT NULL,
+  `photo` blob NOT NULL,
+  `datecreated` datetime NOT NULL,
+  `datemodified` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email_2` (`email`),
+  UNIQUE KEY `mobile_2` (`mobile`),
+  KEY `email` (`email`),
+  KEY `mobile` (`mobile`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE IF NOT EXISTS `payment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` date NOT NULL,
+  `tripid` int(11) NOT NULL,
+  `amount` decimal(6,2) DEFAULT NULL,
+  `mode` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `tripid` (`tripid`),
+  KEY `mode` (`mode`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trip`
+--
+
+CREATE TABLE IF NOT EXISTS `trip` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vehicleid` int(11) NOT NULL,
+  `passengerid` int(11) NOT NULL,
+  `source` varchar(250) NOT NULL,
+  `sourcelat` decimal(11,8) NOT NULL,
+  `sourcelong` decimal(11,8) NOT NULL,
+  `destination` varchar(250) NOT NULL,
+  `destinationlat` decimal(11,8) NOT NULL,
+  `destinationlong` decimal(11,8) NOT NULL,
+  `stage` varchar(15) NOT NULL,
+  `datestart` datetime DEFAULT NULL,
+  `dateend` datetime DEFAULT NULL,
+  `datecreated` datetime NOT NULL,
+  `datemodified` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `vehicleid` (`vehicleid`),
+  KEY `passengerid` (`passengerid`),
+  KEY `stage` (`stage`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vehicle`
+--
+
+CREATE TABLE IF NOT EXISTS `vehicle` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `driverid` int(11) NOT NULL,
+  `plateno` varchar(10) NOT NULL,
+  `type` varchar(15) NOT NULL,
+  `make` varchar(10) NOT NULL,
+  `model` varchar(10) NOT NULL,
+  `color` varchar(10) NOT NULL,
+  `photo` blob,
+  `active` tinyint(4) NOT NULL,
+  `free` tinyint(4) NOT NULL,
+  `locationlat` decimal(11,8) DEFAULT NULL,
+  `locationlong` decimal(11,8) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `plateno_2` (`plateno`),
+  KEY `driverid` (`driverid`),
+  KEY `plateno` (`plateno`),
+  KEY `type` (`type`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `driverdocument`
+--
+ALTER TABLE `driverdocument`
+  ADD CONSTRAINT `driverdocument_ibfk_1` FOREIGN KEY (`driverid`) REFERENCES `driver` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `payment`
+--
+ALTER TABLE `payment`
+  ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`tripid`) REFERENCES `trip` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `trip`
+--
+ALTER TABLE `trip`
+  ADD CONSTRAINT `trip_ibfk_1` FOREIGN KEY (`vehicleid`) REFERENCES `vehicle` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `trip_ibfk_2` FOREIGN KEY (`passengerid`) REFERENCES `passenger` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `vehicle`
+--
+ALTER TABLE `vehicle`
+  ADD CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`driverid`) REFERENCES `driver` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
