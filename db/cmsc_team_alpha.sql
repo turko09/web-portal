@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `datecreated` datetime NOT NULL,
   `datemodified` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email_2` (`email`),
+  UNIQUE KEY `admin_email` (`email`),
   KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -69,8 +69,8 @@ CREATE TABLE IF NOT EXISTS `driver` (
   `datecreated` datetime NOT NULL,
   `datemodified` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email_2` (`email`),
-  UNIQUE KEY `mobile_2` (`mobile`),
+  UNIQUE KEY `driver_email` (`email`),
+  UNIQUE KEY `driver_mobile` (`mobile`),
   KEY `email` (`email`),
   KEY `mobile` (`mobile`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -127,8 +127,8 @@ CREATE TABLE IF NOT EXISTS `passenger` (
   `datecreated` datetime NOT NULL,
   `datemodified` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email_2` (`email`),
-  UNIQUE KEY `mobile_2` (`mobile`),
+  UNIQUE KEY `passenger_email` (`email`),
+  UNIQUE KEY `passenger_mobile` (`mobile`),
   KEY `email` (`email`),
   KEY `mobile` (`mobile`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -197,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `vehicle` (
   `locationlat` decimal(11,8) DEFAULT NULL,
   `locationlong` decimal(11,8) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `plateno_2` (`plateno`),
+  UNIQUE KEY `vehicle_plateno` (`plateno`),
   KEY `driverid` (`driverid`),
   KEY `plateno` (`plateno`),
   KEY `type` (`type`)
