@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 172.17.0.1:32771
--- Generation Time: Mar 25, 2018 at 07:04 AM
+-- Generation Time: Mar 25, 2018 at 11:07 AM
 -- Server version: 5.7.21
 -- PHP Version: 7.1.9
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `cmsc_team_alpha`
 --
+CREATE DATABASE IF NOT EXISTS `cmsc_team_alpha` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `cmsc_team_alpha`;
 
 -- --------------------------------------------------------
 
@@ -43,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_2` (`email`),
   KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -71,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `driver` (
   UNIQUE KEY `mobile_2` (`mobile`),
   KEY `email` (`email`),
   KEY `mobile` (`mobile`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -88,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `driverdocument` (
   `datemodified` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `driverid` (`driverid`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -101,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `fare` (
   `amount` decimal(6,2) DEFAULT NULL,
   `surge_amount` decimal(6,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -129,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `passenger` (
   UNIQUE KEY `mobile_2` (`mobile`),
   KEY `email` (`email`),
   KEY `mobile` (`mobile`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -146,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
   PRIMARY KEY (`id`),
   KEY `tripid` (`tripid`),
   KEY `mode` (`mode`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -173,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `trip` (
   KEY `vehicleid` (`vehicleid`),
   KEY `passengerid` (`passengerid`),
   KEY `stage` (`stage`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -199,7 +201,7 @@ CREATE TABLE IF NOT EXISTS `vehicle` (
   KEY `driverid` (`driverid`),
   KEY `plateno` (`plateno`),
   KEY `type` (`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Constraints for dumped tables
