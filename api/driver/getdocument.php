@@ -4,8 +4,8 @@ namespace TeamAlpha\Web;
 // Require classes
 require $_SERVER['DOCUMENT_ROOT'] . '/api/utils/db.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/api/utils/http.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/api/models/driver.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/api/models/driverlistitem.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/api/models/driverdocument.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/api/models/driverdocumentlistitem.php';
 
 // Declare use on objects to be used
 use Exception;
@@ -21,19 +21,31 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 }
 
 $id = 0;
+$driverid = 0;
 
 // Extract request query string
 if (array_key_exists('id', $_GET)) {
     $id = intval($_GET['id']);
 }
+if (array_key_exists('driverid', $_GET)) {
+    $driverid = intval($_GET['driverid']);
+}
+
+if ($id === 0 && $driverid === 0) {
+    Http::ReturnError(400, array('message' => 'Document id or driver id was not provided.'));
+    return;
+}
 
 try {
     if ($id === 0) {
         // Id was not given
-        // Return all drivers
+        // Return all driver documents for a driver
 
         // Create Db object
-        $db = new Db('SELECT * FROM `driver`');
+        $db = new Db('SELECT * FROM `driverdocument` WHERE driverid = :driverid');
+
+        // Bind parameters
+        $db->bindParam(':driverid', $driverid);
 
         $response = array();
 
@@ -42,8 +54,8 @@ try {
             // Drivers were found
             $records = $db->fetchAll();
             foreach ($records as &$record) {
-                $driver = new DriverListItem($record);
-                array_push($response, $driver);
+                $driverdocument = new DriverDocumentListItem($record);
+                array_push($response, $driverdocument);
             }
         }
 
@@ -51,21 +63,21 @@ try {
         Http::ReturnSuccess($response);
     } else {
         // Create Db object
-        $db = new Db('SELECT * FROM `driver` WHERE id = :id LIMIT 1');
+        $db = new Db('SELECT * FROM `driverdocument` WHERE id = :id LIMIT 1');
 
         // Bind parameters
         $db->bindParam(':id', $id);
 
         // Execute
         if ($db->execute() === 0) {
-            Http::ReturnError(404, array('message' => 'Driver not found.'));
+            Http::ReturnError(404, array('message' => 'Driver document not found.'));
         } else {
-            // Driver was found
+            // Driver document was found
             $record = $db->fetchAll()[0];
-            $driver = new Driver($record);
+            $driverdocument = new DriverDocument($record);
 
             // Reply with successful response
-            Http::ReturnSuccess($driver);
+            Http::ReturnSuccess($driverdocument);
         }
     }
 } catch (PDOException $pe) {
