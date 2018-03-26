@@ -22,21 +22,21 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $input = json_decode(file_get_contents("php://input"));
 
 if (is_null($input)) {
-    Http::ReturnError(400, array('message' => 'Driver details are empty.'));
+    Http::ReturnError(400, array('message' => 'Driver document details are empty.'));
 } else {
     try {
         // Create Db object
-        $db = new Db('SELECT * FROM `driver` WHERE id = :id LIMIT 1');
+        $db = new Db('SELECT * FROM `driverdocument` WHERE id = :id LIMIT 1');
 
         // Bind parameters
         $db->bindParam(':id', property_exists($input, 'id') ? $input->id : 0);
 
         // Execute
         if ($db->execute() === 0) {
-            Http::ReturnError(404, array('message' => 'Driver not found.'));
+            Http::ReturnError(404, array('message' => 'Driver document not found.'));
         } else {
             // Create Db object
-            $db = new Db('DELETE FROM `driver` WHERE id = :id');
+            $db = new Db('DELETE FROM `driverdocument` WHERE id = :id');
 
             // Bind parameters
             $db->bindParam(':id', property_exists($input, 'id') ? $input->id : 0);
@@ -48,7 +48,7 @@ if (is_null($input)) {
             $db->commit();
 
             // Reply with successful response
-            Http::ReturnSuccess(array('message' => 'Driver deleted.', 'driverId' => $input->id));
+            Http::ReturnSuccess(array('message' => 'Driver document deleted.', 'driverDocumentId' => $input->id));
         }
     } catch (PDOException $pe) {
         Db::ReturnDbError($pe);

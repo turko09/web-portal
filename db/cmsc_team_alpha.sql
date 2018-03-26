@@ -2,8 +2,8 @@
 -- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Host: 172.17.0.1:32771
--- Generation Time: Mar 25, 2018 at 11:07 AM
+-- Host: 172.17.0.1:32769
+-- Generation Time: Mar 26, 2018 at 01:12 AM
 -- Server version: 5.7.21
 -- PHP Version: 7.1.9
 
@@ -84,7 +84,8 @@ CREATE TABLE IF NOT EXISTS `driver` (
 CREATE TABLE IF NOT EXISTS `driverdocument` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `driverid` int(11) NOT NULL,
-  `description` varchar(50) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `type` varchar(50) NOT NULL,
   `document` blob NOT NULL,
   `datecreated` datetime NOT NULL,
   `datemodified` datetime NOT NULL,
